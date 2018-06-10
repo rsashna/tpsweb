@@ -1,0 +1,26 @@
+<html>
+
+<?php
+
+$link = mysqli_connect("localhost", "root", "", "hackathon");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ 
+// Attempt insert query execution
+$sql = "INSERT INTO tps (name, dates, message) VALUES ('$name', '$date', '$message')";
+if(mysqli_query($link, $sql)){
+    echo "Records inserted successfully.";
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+ 
+// Close connection
+mysqli_close($link);
+
+?>
+
+
+</html>
